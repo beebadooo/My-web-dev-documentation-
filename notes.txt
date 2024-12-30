@@ -1,0 +1,8 @@
+seo - search engine optimisation
+    1. title 
+
+
+core web vitals
+    1. CLS - cumulative layout shift - pg load hote hote layout kitna shift ho rha h
+    2. LCP- largest contentful paint - sabse largest part/element ko kitna time lgta h load hone me - good time is 2.5 sec or less
+    3. FID - first input delay - time when a user interacts with a page i.e clicks a button etc - good time is 100ms or less
