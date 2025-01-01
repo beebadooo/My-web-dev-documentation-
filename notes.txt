@@ -7,4 +7,8 @@
     2. LCP- largest contentful paint - sabse largest part/element ko kitna time lgta h load hone me - good time is 2.5 sec or less
     3. FID - first input delay - time when a user interacts with a page i.e clicks a button etc - good time is 100ms or less
 
-#
+#inline elements- jitni width set kro utni lete h (a,span,etc)
+#block elements - screen ki puri width le lete h (p,div,etc)
+
+# Id - just like adhaar number - unique - css me #xyz means id
+#Class - not unique - css em .xyz means class
