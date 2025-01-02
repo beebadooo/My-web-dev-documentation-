@@ -25,3 +25,5 @@
 
 ------------------------
 # SVG stands for Scalable Vector Graphics
+
+# semantic tags - good for SEO - provide meaning to the structure of web content
