@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.5);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0f0;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #0f0;
+            border-radius: 5px;
+            background-color: #222;
+            color: #0f0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0f0;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0a0;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Attendance Calculator</h1>
+        <label for="start-date">Start Date</label>
+        <input type="date" id="start-date" placeholder="Enter start date">
+
+        <label for="stop-date">Stop Date</label>
+        <input type="date" id="stop-date" placeholder="Enter stop date">
+
+        <label for="classes-per-week">Classes Per Week</label>
+        <input type="number" id="classes-per-week" placeholder="Enter number of classes per week">
+
+        <label for="attended-classes">Classes Attended</label>
+        <input type="number" id="attended-classes" placeholder="Enter total number of attended classes">
+
+        <button onclick="calculateAttendance()">Calculate Attendance</button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function calculateAttendance() {
+            const startDate = new Date(document.getElementById('start-date').value);
+            const stopDate = new Date(document.getElementById('stop-date').value);
+            const classesPerWeek = document.getElementById('classes-per-week').value;
+            const attendedClasses = document.getElementById('attended-classes').value;
+
+            if (isNaN(startDate) || isNaN(stopDate) || startDate >= stopDate || classesPerWeek <= 0 || attendedClasses < 0) {
+                alert('Please enter valid input values.');
+                return;
+            }
+
+            const weeks = Math.ceil((stopDate - startDate) / (1000 * 60 * 60 * 24 * 7));
+            const totalClasses = weeks * classesPerWeek;
+
+            if (attendedClasses > totalClasses) {
+                alert('Attended classes cannot exceed total classes.');
+                return;
+            }
+
+            const percentage = ((attendedClasses / totalClasses) * 100).toFixed(2);
+            document.getElementById('result').innerHTML = `Total Classes: <strong>${totalClasses}</strong><br>Attendance Percentage: <strong>${percentage}%</strong>`;
+        }
+    </script>
+</body>
+</html>
